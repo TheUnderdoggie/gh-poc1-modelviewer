@@ -3,14 +3,14 @@
  * @Email:  code@bramkorsten.nl
  * @Project: POC1 - Bram Korsten x Greenhouse
  * @Filename: styles.less
- * @Last modified time: 2019-10-04T09:23:15+02:00
+ * @Last modified time: 2019-10-04T13:28:10+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #1234ff;
+  background-color: #fff;
 }
 html model-viewer,
 body model-viewer {
