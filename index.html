@@ -7,13 +7,42 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <div class="loader transitionIn">
+      <div class="loaderContent">
+        <div class="animation">
+          <!-- <span>Loa</span><span>ding</span> -->
+          <span>Run</span><span>Waste</span>
+        </div>
+      </div>
+      <div class="about">
+        <span>A digital experience by Greenhouse x NOoF</span>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="section left">
+        <div class="logo"><span>RUN</span><span>WASTE</span></div>
+      </div>
+      <div class="section center"></div>
+      <div class="section right">
+        <div class="menu">
+          <a href="">About</a>
+          <a href="">Visit</a>
+        </div>
+        <div class="menuIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
     <model-viewer
-      src="assets/models/char1/character1.gltf"
+      src=""
       ar
       camera-controls
+      auto-rotate
       camera-orbit="10deg 75deg 35m"
       unstable-webxr
-      background-color="rgba(255,255,255,0)"
+      background-color="transparent"
       animation-name="stop"
       animation-crossfade-duration="1000"
       autoplay
@@ -37,6 +66,7 @@
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
     ></script>
 
-    <script src="assets/js/animation.js" charset="utf-8"></script>
+    <script src="assets/js/runwaste.js" charset="utf-8"></script>
+    <script src="assets/js/model.js" charset="utf-8"></script>
   </body>
 </html>

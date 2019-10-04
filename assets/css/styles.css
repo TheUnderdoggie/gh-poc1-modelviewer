@@ -3,17 +3,233 @@
  * @Email:  code@bramkorsten.nl
  * @Project: POC1 - Bram Korsten x Greenhouse
  * @Filename: styles.less
- * @Last modified time: 2019-10-04T13:28:10+02:00
+ * @Last modified time: 2019-10-04T16:30:17+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
+@font-face {
+  font-family: "GTAmericaStandard";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/GT-America-Standard-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "GTAmericaMono";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/GT-America-Mono-Regular.woff2) format("woff2");
+}
+@keyframes shift {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(50%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  clip-path: inset(0 100% 0 0);
+  transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.loader.transitionIn {
+  clip-path: inset(0 0 0 0);
+}
+.loader.transitionIn .loaderContent {
+  clip-path: inset(100px 100px 100px 100px);
+}
+.loader.transitionOut {
+  clip-path: inset(0 0 0 100%);
+}
+.loader.transitionOut .loaderContent {
+  clip-path: inset(100px 100px 100px 100%);
+}
+.loader .loaderContent {
+  width: 100%;
+  height: 100%;
+  clip-path: inset(100px 100% 100px 100px);
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.loader .loaderContent .animation {
+  font-size: 35px;
+  line-height: 45px;
+  font-family: "GTAmericaMono", helvetica, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+}
+.loader .loaderContent .animation span {
+  display: inline-block;
+  animation: shift 1s linear infinite;
+}
+.loader .loaderContent .animation span:nth-child(1) {
+  animation-delay: 0s;
+}
+.loader .loaderContent .animation span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loader .loaderContent .animation span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loader .loaderContent .animation span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.loader .about {
+  font-size: 13px;
+  line-height: 23px;
+  font-family: "GTAmericaMono", helvetica, sans-serif;
+  color: #4d4d4d;
+  position: absolute;
+  bottom: 40px;
+}
+@media screen and (max-width: 500px) {
+  .loader.transitionIn {
+    clip-path: inset(0 0 0 0);
+  }
+  .loader.transitionIn .loaderContent {
+    clip-path: inset(20px 20px 20px 20px);
+  }
+  .loader.transitionOut {
+    clip-path: inset(0 0 0 100%);
+  }
+  .loader.transitionOut .loaderContent {
+    clip-path: inset(20px 20px 20px 100%);
+  }
+  .loader .loaderContent {
+    clip-path: inset(20px 100% 20px 20px);
+  }
+  .loader .about {
+    color: #fff;
+    width: 250px;
+    text-align: center;
+  }
+}
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation .section {
+  padding: 0 100px;
+}
+.navigation .section.left .logo {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: "GTAmericaMono", helvetica, sans-serif;
+}
+.navigation .section.left .logo span {
+  display: inline-block;
+}
+.navigation .section.left .logo span:first-child {
+  transform: translateY(-10%);
+}
+.navigation .section.left .logo span:last-child {
+  transform: translateY(10%);
+}
+.navigation .section.right .menu {
+  font-size: 15px;
+  line-height: 25px;
+  font-family: "GTAmericaMono", helvetica, sans-serif;
+  text-transform: uppercase;
+}
+.navigation .section.right .menu a {
+  color: #000;
+  margin: 10px 20px;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+.navigation .section.right .menu a::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform-origin: right center;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.navigation .section.right .menu a:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+.navigation .section.right .menuIcon {
+  display: none;
+  width: 30px;
+}
+.navigation .section.right .menuIcon span {
+  width: 100%;
+  height: 2px;
+  margin: 6px 0;
+  background-color: #000;
+  display: block;
+}
+@media screen and (max-width: 500px) {
+  .navigation {
+    height: 60px;
+  }
+  .navigation .section {
+    padding: 0 20px;
+  }
+  .navigation .section.left .logo {
+    font-size: 15px;
+    line-height: 25px;
+    font-family: "GTAmericaMono", helvetica, sans-serif;
+  }
+  .navigation .section.right .menu {
+    display: none;
+  }
+  .navigation .section.right .menuIcon {
+    display: block;
+  }
+}
 html,
 body {
   margin: 0;
   padding: 0;
   background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
 }
 html model-viewer,
 body model-viewer {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+}
+@media screen and (max-width: 500px) {
+  body model-viewer {
+    height: 90vh;
+  }
 }

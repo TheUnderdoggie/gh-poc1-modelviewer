@@ -1,0 +1,45 @@
+// main: styles.less
+
+// COLORS
+// All the main color this project uses
+
+@black: #000;
+@white: #fff;
+
+@lightGrey: darken(@white, 10%);
+@darkGrey: darken(@white, 70%);
+
+@loaderBackground: @black;
+
+// FONTS
+
+@font-face {
+  font-family: "GTAmericaStandard";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/GT-America-Standard-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "GTAmericaMono";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/GT-America-Mono-Regular.woff2) format("woff2");
+}
+
+.defaultFont(@size: 18px, @lineHeight: (@size + 10px)) {
+  font-size: @size;
+  line-height: @lineHeight;
+  font-family: "GTAmericaStandard", helvetica, sans-serif;
+}
+
+.defaultMonoFont(@size: 18px, @lineHeight: (@size + 10px)) {
+  font-size: @size;
+  line-height: @lineHeight;
+  font-family: "GTAmericaMono", helvetica, sans-serif;
+}
+
+// TRANSITIONS
+
+.defaultTransition(@speed: 0.6s, @property: all) {
+  transition: @property @speed cubic-bezier(0.77, 0, 0.175, 1);
+}

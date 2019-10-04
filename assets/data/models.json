@@ -1,0 +1,23 @@
+{
+  "models": [
+    {
+      "name": "Character 1",
+      "gltf": "char1/character1.gltf",
+      "usdz": "char1/character1.usdz",
+      "defaultAnimation": "idle",
+      "animations": {
+        "idle": {
+          "name": "idle",
+          "frames": 491,
+          "framerate": 30
+        },
+        "stop": {
+          "name": "stop",
+          "frames": 91,
+          "framerate": 30
+        }
+      }
+    },
+    {}
+  ]
+}

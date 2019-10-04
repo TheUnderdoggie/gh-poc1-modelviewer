@@ -1,22 +1,36 @@
-// out: ../css/styles.css sourcemap: true
+// out: ../css/styles.css, sourcemap: true
 
 /**
  * @Date:   2019-10-03T11:16:33+02:00
  * @Email:  code@bramkorsten.nl
  * @Project: POC1 - Bram Korsten x Greenhouse
  * @Filename: styles.less
- * @Last modified time: 2019-10-04T13:28:10+02:00
+ * @Last modified time: 2019-10-04T16:30:17+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
+
+@import "constants.less";
+@import "loader.less";
+@import "navigation.less";
 
 html,
 body {
   margin: 0;
   padding: 0;
   background-color: #fff;
+  width: 100%;
+  min-height: 100vh;
 
   model-viewer {
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    model-viewer {
+      height: 90vh;
+    }
   }
 }
