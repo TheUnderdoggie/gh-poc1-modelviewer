@@ -3,7 +3,7 @@
  * @Email:  code@bramkorsten.nl
  * @Project: POC1 - Bram Korsten x Greenhouse
  * @Filename: styles.less
- * @Last modified time: 2019-10-04T16:30:17+02:00
+ * @Last modified time: 2019-10-07T12:22:56+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 @font-face {
@@ -49,24 +49,30 @@
   justify-content: space-around;
   align-items: center;
   clip-path: inset(0 100% 0 0);
+  -webkit-clip-path: inset(0 100% 0 0);
   transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .loader.transitionIn {
   clip-path: inset(0 0 0 0);
+  -webkit-clip-path: inset(0 0 0 0);
 }
 .loader.transitionIn .loaderContent {
   clip-path: inset(100px 100px 100px 100px);
+  -webkit-clip-path: inset(100px 100px 100px 100px);
 }
 .loader.transitionOut {
   clip-path: inset(0 0 0 100%);
+  -webkit-clip-path: inset(0 0 0 100%);
 }
 .loader.transitionOut .loaderContent {
   clip-path: inset(100px 100px 100px 100%);
+  -webkit-clip-path: inset(100px 100px 100px 100%);
 }
 .loader .loaderContent {
   width: 100%;
   height: 100%;
   clip-path: inset(100px 100% 100px 100px);
+  -webkit-clip-path: inset(100px 100% 100px 100px);
   background-color: #000;
   display: flex;
   justify-content: space-around;
@@ -107,18 +113,23 @@
 @media screen and (max-width: 500px) {
   .loader.transitionIn {
     clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
   }
   .loader.transitionIn .loaderContent {
     clip-path: inset(20px 20px 20px 20px);
+    -webkit-clip-path: inset(20px 20px 20px 20px);
   }
   .loader.transitionOut {
     clip-path: inset(0 0 0 100%);
+    -webkit-clip-path: inset(0 0 0 100%);
   }
   .loader.transitionOut .loaderContent {
     clip-path: inset(20px 20px 20px 100%);
+    -webkit-clip-path: inset(20px 20px 20px 100%);
   }
   .loader .loaderContent {
     clip-path: inset(20px 100% 20px 20px);
+    -webkit-clip-path: inset(20px 100% 20px 20px);
   }
   .loader .about {
     color: #fff;

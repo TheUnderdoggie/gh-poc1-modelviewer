@@ -34,21 +34,26 @@
   justify-content: space-around;
   align-items: center;
   clip-path: inset(0 100% 0 0);
+  -webkit-clip-path: inset(0 100% 0 0);
 
   .defaultTransition();
 
   &.transitionIn {
     clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
 
     .loaderContent {
       clip-path: inset(100px 100px 100px 100px);
+      -webkit-clip-path: inset(100px 100px 100px 100px);
     }
   }
   &.transitionOut {
     clip-path: inset(0 0 0 100%);
+    -webkit-clip-path: inset(0 0 0 100%);
 
     .loaderContent {
       clip-path: inset(100px 100px 100px 100%);
+      -webkit-clip-path: inset(100px 100px 100px 100%);
     }
   }
 
@@ -56,6 +61,7 @@
     width: 100%;
     height: 100%;
     clip-path: inset(100px 100% 100px 100px);
+    -webkit-clip-path: inset(100px 100% 100px 100px);
     background-color: @black;
     display: flex;
     justify-content: space-around;
@@ -98,20 +104,25 @@
   .loader {
     &.transitionIn {
       clip-path: inset(0 0 0 0);
+      -webkit-clip-path: inset(0 0 0 0);
 
       .loaderContent {
         clip-path: inset(20px 20px 20px 20px);
+        -webkit-clip-path: inset(20px 20px 20px 20px);
       }
     }
     &.transitionOut {
       clip-path: inset(0 0 0 100%);
+      -webkit-clip-path: inset(0 0 0 100%);
 
       .loaderContent {
         clip-path: inset(20px 20px 20px 100%);
+        -webkit-clip-path: inset(20px 20px 20px 100%);
       }
     }
     .loaderContent {
       clip-path: inset(20px 100% 20px 20px);
+      -webkit-clip-path: inset(20px 100% 20px 20px);
     }
 
     .about {
