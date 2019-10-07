@@ -35,6 +35,17 @@
         </div>
       </div>
     </div>
+    <div class="selectionOverlay">
+      <div class="flexInner">
+        <div class="title">
+          <span>Choose a model</span>
+        </div>
+        <div class="selectionContainer" id="selectionContainer"></div>
+      </div>
+    </div>
+    <div class="changeModelButton">
+      <span>Select Model</span>
+    </div>
     <model-viewer
       src=""
       ar
@@ -66,7 +77,11 @@
       nomodule
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
     ></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"
+      integrity="sha256-rP/7cD6sF9Rey5N+nwEgClCdovR+NIuUxWMkyqak9vU="
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/js/runwaste.js" charset="utf-8"></script>
     <script src="assets/js/model.js" charset="utf-8"></script>
   </body>

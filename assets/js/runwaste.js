@@ -3,21 +3,28 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: runwaste.js
- * @Last modified time: 2019-10-07T12:24:06+02:00
+ * @Last modified time: 2019-10-07T16:51:26+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
 const version = "1.0.0";
 
 var viewer;
+var selector;
 var isModelLoading = false;
+var changeModelButton;
 
 $(async function() {
   console.log(
     "RunWaste Model Viewer - Version " + version + " by Bram Korsten"
   );
   viewer = $("model-viewer");
+  selector = $(".selectionOverlay");
   loadingWindow = $(".loader");
+  changeModelButton = $(".changeModelButton");
+  changeModelButton.click(function() {
+    showSelector(true);
+  });
   await getModels();
   setupLoadingHandler();
 
@@ -46,10 +53,21 @@ function isLoading(isLoading) {
     isModelLoading = false;
     loaderTimeout = setTimeout(function() {
       loadingWindow.removeClass("transitionOut");
+      changeModelButton.addClass("visible");
     }, 700);
   }
 }
 
 function _isModelLoading() {
   return isModelLoading;
+}
+
+function showSelector(visible) {
+  if (visible) {
+    selector.addClass("visible");
+    changeModelButton.removeClass("visible");
+    return true;
+  }
+  selector.removeClass("visible");
+  return false;
 }

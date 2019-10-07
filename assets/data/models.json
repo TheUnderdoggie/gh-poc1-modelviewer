@@ -2,6 +2,7 @@
   "models": [
     {
       "name": "Character 1",
+      "poster": "char1/poster1.jpg",
       "gltf": "char1/character1.gltf",
       "usdz": "char1/character1.usdz",
       "defaultAnimation": "idle",
@@ -20,6 +21,7 @@
     },
     {
       "name": "Karl",
+      "poster": "char1/poster2.jpg",
       "gltf": "karl/KarlV1.gltf",
       "usdz": "char1/character1.usdz",
       "defaultAnimation": "data_invoer_01_Bind_Joint_GRP|CINEMA_4D_Main|Layer0",

@@ -3,12 +3,13 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: model.js
- * @Last modified time: 2019-10-07T12:24:47+02:00
+ * @Last modified time: 2019-10-07T16:51:57+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
 var models;
 var currentModel;
+var currentModelId = 0;
 var animations;
 var stopTime;
 
@@ -16,15 +17,35 @@ const modelLocation = "assets/models/";
 const dataLocation = "assets/data/";
 
 async function getModels() {
+  // Fetch the models from the models.json file
   const response = await fetch(dataLocation + "models.json");
   models = await response.json();
-  // stopTime = models.stop.frames / models.stop.framerate;
+  // Setup the selection system
+  parseModels(models);
   return models;
+}
+
+async function parseModels(models) {
+  const response = await fetch("assets/templates/selection.mst");
+  const selectionTemplate = await response.text();
+
+  for (var model in models.models) {
+    const renderedView = Mustache.render(selectionTemplate, {
+      modelId: model,
+      modelPoster: "assets/models/" + models.models[model].poster,
+      modelName: models.models[model].name
+    });
+    $("#selectionContainer").append(renderedView);
+  }
+
+  bindModelSelectors();
 }
 
 function loadModel(model) {
   isLoading(true);
   setTimeout(function() {
+    showSelector(false);
+    currentModelId = model;
     currentModel = models.models[model];
     console.log("Loading model: '" + currentModel.name + "'");
     const modelSrc = modelLocation + currentModel.gltf;
@@ -50,6 +71,23 @@ function onFrame() {
       }
     });
   }
+}
+
+function bindModelSelectors() {
+  $(".selectionOverlay .selection").click(function() {
+    const modelId = $(this).data("model-id");
+    if (modelId !== undefined) {
+      if (modelId == currentModelId) {
+        console.log("Model already selected");
+        showSelector(false);
+        changeModelButton.addClass("visible");
+        return false;
+      }
+      loadModel($(this).data("model-id"));
+      return false;
+    }
+    console.warn("The selected model does not have a valid ID");
+  });
 }
 
 function _isStopAnimation(viewer) {

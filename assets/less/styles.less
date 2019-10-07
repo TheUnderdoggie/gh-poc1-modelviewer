@@ -5,13 +5,14 @@
  * @Email:  code@bramkorsten.nl
  * @Project: POC1 - Bram Korsten x Greenhouse
  * @Filename: styles.less
- * @Last modified time: 2019-10-07T12:22:56+02:00
+ * @Last modified time: 2019-10-07T16:48:36+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
 @import "constants.less";
 @import "loader.less";
 @import "navigation.less";
+@import "selector.less";
 
 html,
 body {
@@ -20,6 +21,33 @@ body {
   background-color: #fff;
   width: 100%;
   min-height: 100vh;
+
+  .changeModelButton {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    background-color: @black;
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: none;
+    clip-path: inset(100% 0 0 0);
+    -webkit-clip-path: inset(100% 0 0 0);
+    .defaultTransition();
+
+    &.visible {
+      clip-path: inset(0 0 0 0);
+      -webkit-clip-path: inset(0 0 0 0);
+      pointer-events: all;
+    }
+
+    span {
+      .defaultMonoFont(14px);
+      display: block;
+      color: @white;
+      padding: 10px 15px;
+      user-select: none;
+    }
+  }
 
   model-viewer {
     width: 100vw;
