@@ -2,7 +2,7 @@
 
 .selectionOverlay {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@
   user-select: none;
 
   .title {
-    .defaultMonoFont(30px);
+    .defaultBlackFont(30px);
     margin-left: 25px;
     transform: translateY(35px);
     opacity: 0;
@@ -27,6 +27,7 @@
   .selectionContainer {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     &:hover {
       .selection {
@@ -94,6 +95,40 @@
       .selection {
         clip-path: inset(0 0 -50px 0);
         -webkit-clip-path: inset(0 0 -50px 0);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .selectionOverlay {
+    .selectionContainer {
+      max-width: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .selectionOverlay {
+    .selectionContainer {
+      max-width: 350px;
+
+      .selection {
+        width: 125px;
+        height: 125px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .selectionOverlay {
+    .selectionContainer {
+      max-width: 300px;
+
+      .selection {
+        width: 100px;
+        height: 100px;
       }
     }
   }

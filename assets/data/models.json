@@ -1,15 +1,14 @@
 {
   "models": [
     {
-      "name": "Character 1",
-      "poster": "char1/poster1.jpg",
-      "gltf": "char1/character1.gltf",
-      "usdz": "char1/character1.usdz",
-      "defaultAnimation": "idle",
+      "name": "Rank",
+      "poster": "rank/poster.png",
+      "gltf": "rank/rank.gltf",
+      "defaultAnimation": "dancing",
       "animations": {
         "idle": {
-          "name": "idle",
-          "frames": 491,
+          "name": "dancing",
+          "frames": 489,
           "framerate": 30
         },
         "stop": {
@@ -20,20 +19,19 @@
       }
     },
     {
-      "name": "Karl",
-      "poster": "char1/poster2.jpg",
-      "gltf": "karl/KarlV1.gltf",
-      "usdz": "char1/character1.usdz",
-      "defaultAnimation": "data_invoer_01_Bind_Joint_GRP|CINEMA_4D_Main|Layer0",
+      "name": "Balloon",
+      "poster": "balloon/poster.jpg",
+      "gltf": "balloon/balloon_v10.gltf",
+      "defaultAnimation": "spin_in_place",
       "animations": {
         "idle": {
-          "name": "data_invoer_01_Bind_Joint_GRP|CINEMA_4D_Main|Layer0",
-          "frames": 491,
+          "name": "spin_in_place",
+          "frames": 216,
           "framerate": 30
         },
         "stop": {
-          "name": "stop",
-          "frames": 91,
+          "name": "spin_in_place",
+          "frames": 216,
           "framerate": 30
         }
       }

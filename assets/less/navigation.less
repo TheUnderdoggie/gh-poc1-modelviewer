@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 10;
   width: 100%;
   height: 100px;
   background-color: transparent;
@@ -14,10 +14,10 @@
   align-items: center;
 
   .section {
-    padding: 0 100px;
     &.left {
+      padding: 0 0 0 100px;
       .logo {
-        .defaultMonoFont(18px);
+        .defaultBlackFont(18px);
 
         span {
           display: inline-block;
@@ -33,9 +33,11 @@
     &.center {
     }
     &.right {
+      padding: 0 100px 0 0;
       .menu {
-        .defaultMonoFont(15px);
+        .defaultBlackFont(15px);
         text-transform: uppercase;
+        margin-right: -20px;
 
         a {
           color: @black;
@@ -43,6 +45,7 @@
           display: inline-block;
           position: relative;
           text-decoration: none;
+          cursor: pointer;
 
           &::before {
             content: " ";
@@ -69,14 +72,69 @@
       .menuIcon {
         display: none;
         width: 30px;
+        position: relative;
+        height: 20px;
+        cursor: pointer;
 
-        span {
-          width: 100%;
-          height: 2px;
-          margin: 6px 0;
-          background-color: @black;
-          display: block;
-          &:first-child {
+        .burger {
+          position: absolute;
+          width: 30px;
+          height: 20px;
+          opacity: 0;
+          pointer-events: none;
+          .defaultTransition();
+
+          &.visible {
+            opacity: 1;
+            pointer-events: painted;
+          }
+          span {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            margin: 7px 0;
+            background-color: @black;
+            display: block;
+            &:first-child {
+              margin-top: 0;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .close {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          overflow: hidden;
+          margin: 0 5px;
+          opacity: 0;
+          pointer-events: none;
+          .defaultTransition();
+
+          &.visible {
+            opacity: 1;
+            pointer-events: painted;
+          }
+
+          span {
+            width: 28px;
+            height: 2px;
+            margin: 0;
+            background-color: @black;
+            display: block;
+            transform-origin: left center;
+            &:first-child {
+              transform: rotate(45deg);
+              position: absolute;
+              top: -1px;
+            }
+            &:last-child {
+              transform: rotate(-45deg);
+              position: absolute;
+              bottom: -1px;
+            }
           }
         }
       }
@@ -84,18 +142,64 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+.mobileMenu {
+  position: absolute;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  align-items: center;
+  .defaultTransition();
+  transform: translateX(100%);
+  display: none;
+
+  &.visible {
+    transform: translateX(0);
+
+    .menu {
+      a {
+        transform: translateX(0);
+        cursor: pointer;
+
+        &:first-child {
+          transition-delay: 0.2s;
+        }
+
+        &:last-child {
+          transition-delay: 0.1s;
+        }
+      }
+    }
+  }
+
+  .menu {
+    .defaultBlackFont(50px);
+    text-transform: uppercase;
+    margin-left: 20px;
+
+    a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      padding: 10px 0;
+      transform: translateX(10%);
+      .defaultTransition();
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
   .navigation {
     height: 60px;
     .section {
-      padding: 0 20px;
-
       &.left {
+        padding: 0 20px;
         .logo {
           .defaultMonoFont(15px);
         }
       }
       &.right {
+        padding: 0 20px;
         .menu {
           display: none;
         }
@@ -104,5 +208,9 @@
         }
       }
     }
+  }
+
+  .mobileMenu {
+    display: flex;
   }
 }

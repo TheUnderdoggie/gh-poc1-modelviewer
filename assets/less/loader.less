@@ -29,12 +29,14 @@
   background-color: @white;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 9;
   display: flex;
   justify-content: space-around;
   align-items: center;
   clip-path: inset(0 100% 0 0);
   -webkit-clip-path: inset(0 100% 0 0);
+  pointer-events: none;
+  user-select: none;
 
   .defaultTransition();
 
@@ -57,6 +59,10 @@
     }
   }
 
+  &.invisible {
+    display: none;
+  }
+
   .loaderContent {
     width: 100%;
     height: 100%;
@@ -69,7 +75,7 @@
     .defaultTransition();
 
     .animation {
-      .defaultMonoFont(35px);
+      .defaultBlackFont(35px);
       color: @white;
       text-transform: uppercase;
       span {
@@ -100,7 +106,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .loader {
     &.transitionIn {
       clip-path: inset(0 0 0 0);

@@ -3,7 +3,7 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: runwaste.js
- * @Last modified time: 2019-10-07T16:51:26+02:00
+ * @Last modified time: 2019-10-18T10:42:32+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
@@ -21,6 +21,8 @@ $(async function() {
   viewer = $("model-viewer");
   selector = $(".selectionOverlay");
   loadingWindow = $(".loader");
+  loadingWindow.removeClass("invisible");
+  setupClickHandlers();
   changeModelButton = $(".changeModelButton");
   changeModelButton.click(function() {
     showSelector(true);
@@ -70,4 +72,34 @@ function showSelector(visible) {
   }
   selector.removeClass("visible");
   return false;
+}
+
+function setupClickHandlers() {
+  $(".openAbout").click(function() {
+    $(".aboutOverlay").toggleClass("visible");
+  });
+
+  $(".aboutOverlay .closeButton").click(function() {
+    $(".aboutOverlay").toggleClass("visible");
+  });
+
+  $(".toggleMobileMenu").click(function() {
+    toggleMenu();
+  });
+
+  $(".mobileMenu .menuButton").click(function() {
+    toggleMenu();
+  });
+}
+
+function toggleMenu() {
+  $("#mobileMenu").toggleClass("visible");
+
+  if ($("#mobileMenu").hasClass("visible")) {
+    $("#menuIcon .burger").removeClass("visible");
+    $("#menuIcon .close").addClass("visible");
+  } else {
+    $("#menuIcon .burger").addClass("visible");
+    $("#menuIcon .close").removeClass("visible");
+  }
 }

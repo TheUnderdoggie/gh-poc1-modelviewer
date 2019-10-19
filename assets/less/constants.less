@@ -26,16 +26,26 @@
   src: url(../fonts/GT-America-Mono-Regular.woff2) format("woff2");
 }
 
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap");
+
 .defaultFont(@size: 18px, @lineHeight: (@size + 10px)) {
   font-size: @size;
   line-height: @lineHeight;
-  font-family: "GTAmericaStandard", helvetica, sans-serif;
+  font-weight: 400;
+  font-family: "Roboto", helvetica, sans-serif;
 }
 
 .defaultMonoFont(@size: 18px, @lineHeight: (@size + 10px)) {
   font-size: @size;
   line-height: @lineHeight;
-  font-family: "GTAmericaMono", helvetica, sans-serif;
+  font-family: "Roboto", helvetica, sans-serif;
+}
+
+.defaultBlackFont(@size: 18px, @lineHeight: (@size + 10px)) {
+  font-size: @size;
+  line-height: @lineHeight;
+  font-weight: 900;
+  font-family: "Roboto", helvetica, sans-serif;
 }
 
 // TRANSITIONS
