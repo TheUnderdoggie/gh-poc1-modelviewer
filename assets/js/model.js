@@ -3,7 +3,7 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: model.js
- * @Last modified time: 2019-10-17T14:35:00+02:00
+ * @Last modified time: 2019-10-21T12:05:04+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
@@ -95,7 +95,10 @@ function bindModelSelectors() {
 }
 
 function _isStopAnimation(viewer) {
-  if (currentModel.animations.stop.name == $(viewer).attr("animation-name")) {
+  if (
+    currentModel &&
+    currentModel.animations.stop.name == $(viewer).attr("animation-name")
+  ) {
     return true;
   }
   return false;

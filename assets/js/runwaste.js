@@ -3,11 +3,11 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: runwaste.js
- * @Last modified time: 2019-10-21T09:41:34+02:00
+ * @Last modified time: 2019-10-21T12:13:55+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
-const version = "1.0.0";
+const version = "1.0.2";
 
 var viewer;
 var selector;
@@ -16,7 +16,7 @@ var changeModelButton;
 
 $(async function() {
   console.log(
-    "RunWaste Model Viewer - Version " + version + " by Bram Korsten"
+    "Run Waste Model Viewer - Version " + version + " by Bram Korsten"
   );
   viewer = $("model-viewer");
   selector = $(".selectionOverlay");
