@@ -102,7 +102,10 @@
   <body>
     <div class="loader transitionIn invisible">
       <div class="loaderContent">
-        <div class="animation"><span>Run</span><span>Waste</span></div>
+        <div class="animationContainer">
+          <div class="animation"><span>Run</span><span>Waste</span></div>
+          <span class="loadingText">Loading</span>
+        </div>
       </div>
       <div class="about">
         <span>A digital experience by Greenhouse x NOoF</span>
@@ -221,7 +224,7 @@
       src=""
       ar
       camera-controls
-      camera-orbit="10deg 75deg 35m"
+      camera-orbit="10deg 75deg 100m"
       unstable-webxr
       background-color="transparent"
       animation-name="stop"
@@ -244,7 +247,10 @@
     ></script>
 
     <!-- Loads <model-viewer> for old browsers like IE11: -->
-    <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script
+      type="nomodule"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"
       integrity="sha256-rP/7cD6sF9Rey5N+nwEgClCdovR+NIuUxWMkyqak9vU="

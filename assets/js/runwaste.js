@@ -3,11 +3,11 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: runwaste.js
- * @Last modified time: 2019-10-21T12:13:55+02:00
+ * @Last modified time: 2019-10-21T12:19:55+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
-const version = "1.0.2";
+const version = "1.1.0";
 
 var viewer;
 var selector;
