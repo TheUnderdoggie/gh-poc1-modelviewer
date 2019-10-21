@@ -1,0 +1,135 @@
+// main: styles.less
+
+.selectionOverlay {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 8;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+
+  .title {
+    .defaultBlackFont(30px);
+    margin-left: 25px;
+    transform: translateY(35px);
+    opacity: 0;
+  }
+
+  .selectionContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &:hover {
+      .selection {
+        opacity: 0.5;
+      }
+    }
+
+    .selection {
+      position: relative;
+      flex: 0 0 auto;
+      width: 150px;
+      height: 150px;
+      margin: 25px;
+      cursor: pointer;
+      transition: 0.6s 0.3s clip-path cubic-bezier(0.77, 0, 0.175, 1),
+        0.6s opacity cubic-bezier(0.77, 0, 0.175, 1);
+      clip-path: inset(0 100% 0 0);
+      -webkit-clip-path: inset(0 100% 0 0);
+
+      &:hover {
+        opacity: 1;
+        .modelName {
+          bottom: -30px;
+        }
+      }
+
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .modelName {
+        .defaultMonoFont(14px);
+        .defaultTransition(0.6s);
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        left: 0;
+        display: block;
+        width: 100%;
+        text-align: right;
+      }
+    }
+  }
+
+  // Animations on show
+
+  &.visible {
+    opacity: 1;
+    pointer-events: painted;
+    user-select: inherit;
+    .defaultTransition(0.6s);
+
+    .title {
+      transform: translateY(0);
+      opacity: 1;
+      .defaultTransition(1s);
+    }
+
+    .selectionContainer {
+      .selection {
+        clip-path: inset(0 0 -50px 0);
+        -webkit-clip-path: inset(0 0 -50px 0);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .selectionOverlay {
+    .selectionContainer {
+      max-width: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .selectionOverlay {
+    .selectionContainer {
+      max-width: 350px;
+
+      .selection {
+        width: 125px;
+        height: 125px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .selectionOverlay {
+    .selectionContainer {
+      max-width: 300px;
+
+      .selection {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}

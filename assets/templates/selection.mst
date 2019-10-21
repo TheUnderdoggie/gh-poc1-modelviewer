@@ -1,0 +1,4 @@
+<div class="selection" data-model-id="{{modelId}}">
+  <img class="image" src="{{modelPoster}}" />
+  <span class="modelName">{{modelName}}</span>
+</div>

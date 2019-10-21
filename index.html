@@ -3,30 +3,192 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POC1 - BramKorsten x Greenhouse</title>
+    <title>Run Waste</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+
+    <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+
+    <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+
+    <!-- 💁 OPTIONAL: Fullscreen polyfill is required for experimental AR features in Canary -->
+    <script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
+
+    <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+    <script
+      src="https://unpkg.com/focus-visible@5.0.1/dist/focus-visible.js"
+      defer
+    ></script>
   </head>
   <body>
+    <div class="loader transitionIn invisible">
+      <div class="loaderContent">
+        <div class="animation"><span>Run</span><span>Waste</span></div>
+      </div>
+      <div class="about">
+        <span>A digital experience by Greenhouse x NOoF</span>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="section left">
+        <div class="logo"><span>RUN</span><span>WASTE</span></div>
+      </div>
+      <div class="section right">
+        <div class="menu">
+          <a class="menuButton openAbout">About</a>
+          <a
+            class="menuButton"
+            target="_blank"
+            href="https://www.ddw.nl/nl/programma/1954/new-order-of-fashion-modebelofte-the-end-is-near"
+            >Visit</a
+          >
+        </div>
+        <div id="menuIcon" class="menuIcon toggleMobileMenu">
+          <div class="burger visible">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="close">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="mobileMenu">
+      <div class="menu">
+        <a class="menuButton openAbout">About</a>
+        <a
+          class="menuButton"
+          target="_blank"
+          href="https://www.ddw.nl/nl/programma/1954/new-order-of-fashion-modebelofte-the-end-is-near"
+          >Visit</a
+        >
+      </div>
+    </div>
+    <div class="selectionOverlay">
+      <div class="flexInner">
+        <div class="title">
+          <span>Choose a model</span>
+        </div>
+        <div class="selectionContainer" id="selectionContainer"></div>
+      </div>
+    </div>
+    <div class="aboutOverlay">
+      <div class="content">
+        <span class="closeButton">Close</span>
+        <p>
+          RUN WASTE is a project initiated within Greenhouse to see what happens
+          when a dedicated team of tech, design and media work together. 3D
+          Modelling, Coding, Digital Out of Home, Augmented Reality and several
+          other disciplines within the group were used to create RUN WASTE.
+        </p>
+        <p>
+          RUN WASTE is part of New Order of Fashion's exhibition THE END IS
+          NEAR. Fashion designs from upcoming talents are used as foundation for
+          the 3D models. RUN WASTE acts as a new form of digital signing where
+          the audience can actually engage and interact with it.
+        </p>
+        <p>
+          The installation lets you digitally try out different clothing on
+          unique characters who mimic your gestures and movement, making you
+          part of the exhibition. Each character has unique characterics that
+          invites the user to adopt a new form of movement and identity.
+        </p>
+        <p>
+          RUN WASTE is not only an exploration in new forms of digital out of
+          home, but also in user experiences, engagement and how brands can
+          stimulate (playful) interactions between them and an audience.
+        </p>
+        <p>
+          So, come visit us at THE END IS NEAR in the Warehouse of Innovation
+          from 19th till 27th of October. Take a stand in front of RUN WASTE and
+          see who will be facing you.
+        </p>
+        <div class="creators">
+          <a href="https://www.greenhousegroup.com/" target="_blank"
+            ><img
+              class="greenhouse"
+              src="assets/img/GHG-logo-black_RGB.png"
+              alt="Greenhouse Group"
+          /></a>
+          <a href="https://neworderoffashion.com/" target="_blank"
+            ><img
+              class="noof"
+              src="assets/img/noof_logo-01.png"
+              alt="New Order Of Fashion"
+          /></a>
+        </div>
+        <span class="closeButton">Close</span>
+      </div>
+    </div>
+    <div class="textOverlay">
+      <div class="content">
+        <h1>
+          The final run has begun.<br />
+          No more time to waste.
+        </h1>
+        <p>
+          Come visit RUN WASTE during Dutch Design Week at Warehouse of
+          Innovation and face your digital double.
+        </p>
+      </div>
+    </div>
+    <div class="changeModelButton">
+      <span>Select Model</span>
+    </div>
     <model-viewer
-      src="assets/models/karl/KarlV1.gltf"
+      src=""
       ar
       camera-controls
       camera-orbit="10deg 75deg 35m"
       unstable-webxr
-      background-color="rgba(0,0,0,0)"
+      background-color="transparent"
+      animation-name="stop"
+      animation-crossfade-duration="1000"
+      quick-look-browsers="safari chrome"
       autoplay
-    ></model-viewer>
+    >
+    </model-viewer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Loads <model-viewer> for modern browsers: -->
-    <script
+    <!-- <script
       type="module"
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
-    ></script>
+    ></script> -->
 
     <!-- Loads <model-viewer> for old browsers like IE11: -->
+    <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <script
-      nomodule
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"
+      integrity="sha256-rP/7cD6sF9Rey5N+nwEgClCdovR+NIuUxWMkyqak9vU="
+      crossorigin="anonymous"
     ></script>
+    <script src="assets/js/runwaste.js" charset="utf-8"></script>
+    <script src="assets/js/model.js" charset="utf-8"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-150389715-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-150389715-1");
+    </script>
   </body>
 </html>

@@ -1,0 +1,40 @@
+{
+  "models": [
+    {
+      "name": "Rank",
+      "poster": "rank/poster.png",
+      "gltf": "rank/rank.gltf",
+      "defaultAnimation": "dancing",
+      "animations": {
+        "idle": {
+          "name": "dancing",
+          "frames": 489,
+          "framerate": 30
+        },
+        "stop": {
+          "name": "stop",
+          "frames": 91,
+          "framerate": 30
+        }
+      }
+    },
+    {
+      "name": "Balloon",
+      "poster": "balloon/poster.jpg",
+      "gltf": "balloon/balloon_v10.gltf",
+      "defaultAnimation": "spin_in_place",
+      "animations": {
+        "idle": {
+          "name": "spin_in_place",
+          "frames": 216,
+          "framerate": 30
+        },
+        "stop": {
+          "name": "spin_in_place",
+          "frames": 216,
+          "framerate": 30
+        }
+      }
+    }
+  ]
+}
