@@ -2,7 +2,7 @@
   "models": [
     {
       "name": "Rank",
-      "poster": "rank/poster.png",
+      "poster": "rank/poster.jpg",
       "gltf": "rank/rank.gltf",
       "defaultAnimation": "dancing",
       "animations": {
