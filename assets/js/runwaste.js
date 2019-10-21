@@ -3,7 +3,7 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: runwaste.js
- * @Last modified time: 2019-10-18T10:42:32+02:00
+ * @Last modified time: 2019-10-21T09:41:34+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
@@ -48,13 +48,17 @@ var loaderTimeout;
 
 function isLoading(isLoading) {
   if (isLoading) {
-    loadingWindow.addClass("transitionIn").removeClass("transitionOut");
-    isModelLoading = true;
+    loadingWindow.removeClass("invisible");
+    setTimeout(function() {
+      loadingWindow.addClass("transitionIn").removeClass("transitionOut");
+      isModelLoading = true;
+    }, 10);
   } else {
     loadingWindow.addClass("transitionOut").removeClass("transitionIn");
     isModelLoading = false;
     loaderTimeout = setTimeout(function() {
       loadingWindow.removeClass("transitionOut");
+      loadingWindow.addClass("invisible");
       changeModelButton.addClass("visible");
     }, 700);
   }
