@@ -85,7 +85,7 @@
   align-items: center;
   transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.loader .loaderContent .animation {
+.loader .loaderContent .animationContainer .animation {
   font-size: 35px;
   line-height: 45px;
   font-weight: 900;
@@ -93,21 +93,33 @@
   color: #fff;
   text-transform: uppercase;
 }
-.loader .loaderContent .animation span {
+.loader .loaderContent .animationContainer .animation span {
   display: inline-block;
   animation: shift 1s linear infinite;
 }
-.loader .loaderContent .animation span:nth-child(1) {
+.loader .loaderContent .animationContainer .animation span:nth-child(1) {
   animation-delay: 0s;
 }
-.loader .loaderContent .animation span:nth-child(2) {
+.loader .loaderContent .animationContainer .animation span:nth-child(2) {
   animation-delay: 0.2s;
 }
-.loader .loaderContent .animation span:nth-child(3) {
+.loader .loaderContent .animationContainer .animation span:nth-child(3) {
   animation-delay: 0.4s;
 }
-.loader .loaderContent .animation span:nth-child(4) {
+.loader .loaderContent .animationContainer .animation span:nth-child(4) {
   animation-delay: 0.6s;
+}
+.loader .loaderContent .animationContainer .loadingText {
+  font-size: 11px;
+  line-height: 21px;
+  font-weight: 900;
+  font-family: "Roboto", helvetica, sans-serif;
+  color: #4d4d4d;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 20px;
+  letter-spacing: 2px;
 }
 .loader .about {
   font-size: 13px;
@@ -462,11 +474,9 @@
   opacity: 0;
   user-select: none;
   pointer-events: none;
-  display: none;
   transition: opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .aboutOverlay.visible {
-  display: block;
   opacity: 1;
   user-select: inherit;
   pointer-events: auto;

@@ -74,26 +74,38 @@
     align-items: center;
     .defaultTransition();
 
-    .animation {
-      .defaultBlackFont(35px);
-      color: @white;
-      text-transform: uppercase;
-      span {
-        display: inline-block;
-        animation: shift 1s linear infinite;
+    .animationContainer {
+      .animation {
+        .defaultBlackFont(35px);
+        color: @white;
+        text-transform: uppercase;
+        span {
+          display: inline-block;
+          animation: shift 1s linear infinite;
 
-        &:nth-child(1) {
-          animation-delay: 0s;
+          &:nth-child(1) {
+            animation-delay: 0s;
+          }
+          &:nth-child(2) {
+            animation-delay: 0.2s;
+          }
+          &:nth-child(3) {
+            animation-delay: 0.4s;
+          }
+          &:nth-child(4) {
+            animation-delay: 0.6s;
+          }
         }
-        &:nth-child(2) {
-          animation-delay: 0.2s;
-        }
-        &:nth-child(3) {
-          animation-delay: 0.4s;
-        }
-        &:nth-child(4) {
-          animation-delay: 0.6s;
-        }
+      }
+
+      .loadingText {
+        .defaultBlackFont(11px);
+        color: @darkGrey;
+        text-align: center;
+        text-transform: uppercase;
+        display: block;
+        margin-top: 20px;
+        letter-spacing: 2px;
       }
     }
   }

@@ -2,8 +2,13 @@
   "models": [
     {
       "name": "Rank",
-      "poster": "rank/poster.png",
+      "poster": "rank/poster.jpg",
       "gltf": "rank/rank.gltf",
+      "sceneOptions": {
+        "cameraOrbit": "10deg 105deg 10m",
+        "autoRotate": false,
+        "autoRotateDelay": 5000
+      },
       "defaultAnimation": "dancing",
       "animations": {
         "idle": {
@@ -22,6 +27,11 @@
       "name": "Balloon",
       "poster": "balloon/poster.jpg",
       "gltf": "balloon/balloon_v10.gltf",
+      "sceneOptions": {
+        "cameraOrbit": "-50deg 80deg 10m",
+        "autoRotate": true,
+        "autoRotateDelay": 5000
+      },
       "defaultAnimation": "spin_in_place",
       "animations": {
         "idle": {

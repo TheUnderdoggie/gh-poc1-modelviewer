@@ -5,6 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Run Waste</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="assets/img/icons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="assets/img/icons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="assets/img/icons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="assets/img/icons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="assets/img/icons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="assets/img/icons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="assets/img/icons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="assets/img/icons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/img/icons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/img/icons/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/img/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/img/icons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/img/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/img/icons/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="assets/img/icons/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
     <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
 
@@ -26,7 +102,10 @@
   <body>
     <div class="loader transitionIn invisible">
       <div class="loaderContent">
-        <div class="animation"><span>Run</span><span>Waste</span></div>
+        <div class="animationContainer">
+          <div class="animation"><span>Run</span><span>Waste</span></div>
+          <span class="loadingText">Loading</span>
+        </div>
       </div>
       <div class="about">
         <span>A digital experience by Greenhouse x NOoF</span>
@@ -145,7 +224,7 @@
       src=""
       ar
       camera-controls
-      camera-orbit="10deg 75deg 35m"
+      camera-orbit="10deg 75deg 100m"
       unstable-webxr
       background-color="transparent"
       animation-name="stop"
@@ -162,13 +241,16 @@
     ></script>
 
     <!-- Loads <model-viewer> for modern browsers: -->
-    <!-- <script
+    <script
       type="module"
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
-    ></script> -->
+    ></script>
 
     <!-- Loads <model-viewer> for old browsers like IE11: -->
-    <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script
+      type="nomodule"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"
       integrity="sha256-rP/7cD6sF9Rey5N+nwEgClCdovR+NIuUxWMkyqak9vU="

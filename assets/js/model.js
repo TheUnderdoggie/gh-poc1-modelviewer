@@ -3,7 +3,7 @@
  * @Email:  code@bramkorsten.nl
  * @Project: RunWaste
  * @Filename: model.js
- * @Last modified time: 2019-10-17T14:35:00+02:00
+ * @Last modified time: 2019-10-21T13:20:38+02:00
  * @Copyright: Copyright 2019 - Bram Korsten
  */
 
@@ -48,22 +48,48 @@ function loadModel(model) {
     currentModelId = model;
     currentModel = models.models[model];
     console.log("Loading model: '" + currentModel.name + "'");
-    const modelSrc = modelLocation + currentModel.gltf;
-    viewer.attr("src", modelSrc);
-    if (currentModel.hasOwnProperty("usdz")) {
-      // TODO: Make proper apple 'stuff'
-      viewer.attr("ios-src", modelSrc);
-    } else {
-      viewer.attr("ios-src", "");
-    }
-    if (currentModel.hasOwnProperty("sceneOptions")) {
-      // TODO:
-    }
+    setSource(currentModel);
+    setupViewerScene(currentModel);
     viewer.attr("animation-name", _getStopAnimation(currentModel));
     currentModel.stopTime =
       currentModel.animations.stop.frames /
       currentModel.animations.stop.framerate;
   }, 700);
+}
+
+function setSource(model) {
+  const modelSrc = modelLocation + model.gltf;
+  viewer.attr("src", modelSrc);
+  if (model.hasOwnProperty("usdz")) {
+    viewer.attr("ios-src", model.usdz);
+  } else {
+    viewer.removeAttr("ios-src");
+  }
+}
+
+function setupViewerScene(model) {
+  if (currentModel.hasOwnProperty("sceneOptions")) {
+    const sceneOptions = model.sceneOptions;
+    if (sceneOptions.hasOwnProperty("cameraOrbit")) {
+      viewer.attr("camera-orbit", sceneOptions.cameraOrbit);
+    } else {
+      viewer.removeAttr("camera-orbit");
+    }
+    if (sceneOptions.hasOwnProperty("autoRotate") && sceneOptions.autoRotate) {
+      viewer.attr("auto-rotate", true);
+      if (sceneOptions.hasOwnProperty("autoRotateDelay")) {
+        viewer.attr("auto-rotate-delay", sceneOptions.autoRotateDelay);
+      } else {
+        viewer.removeAttr("auto-rotate-delay");
+      }
+    } else {
+      viewer.removeAttr("auto-rotate");
+    }
+    return true;
+  } else {
+    console.warn("Model has no scene options. Consider implementing them.");
+    return false;
+  }
 }
 
 function onFrame() {
@@ -95,7 +121,10 @@ function bindModelSelectors() {
 }
 
 function _isStopAnimation(viewer) {
-  if (currentModel.animations.stop.name == $(viewer).attr("animation-name")) {
+  if (
+    currentModel &&
+    currentModel.animations.stop.name == $(viewer).attr("animation-name")
+  ) {
     return true;
   }
   return false;
